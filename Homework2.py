@@ -31,7 +31,7 @@ class Shell:
 
         return command_Line, background
 
-    # Run backgrgound jobs
+    # Run background jobs
     def run_background(self, command):
         
         command_string = " ".join(command)
@@ -65,7 +65,7 @@ class Shell:
             
             print(f"[{job_number}] {job.status} {job.command}")
 
-    # Reape process 
+    # Reap process 
     def reap_zombies(self):
 
         for job_id in self.jobs:
