@@ -347,7 +347,7 @@ def start_thread():
         p.join()
 
     for i in range(num_consumer):
-        shared_buffer.put_item(None, poisonpill")
+        shared_buffer.put_item(None, "poisonpill")
 
     for c in consumers:
         c.join()
