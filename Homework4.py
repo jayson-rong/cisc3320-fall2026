@@ -33,7 +33,7 @@ class ThreadBuffer:
 
                     # Producer can now produce an item into the buffer
                     if item is not None:
-                        print(f"[producer {producer}] produced item {item} buffer size: {current_size}")
+                        print(f"[producer {producer}] produced {item} buffer size: {current_size}")
 
                     break
 
@@ -68,7 +68,7 @@ class ThreadBuffer:
                         current_size -= self.queue.queue.count(None)
 
                     if item is not None:
-                        print(f"[consumer {consumer}] consumed item {item} buffer size: {current_size}")
+                        print(f"[consumer {consumer}] consumed {item} buffer size: {current_size}")
                     break
 
             time.sleep(0.1)
@@ -180,7 +180,7 @@ class MProcessBuffer:
 
             Mcurrent_size = self.queue.qsize()
 
-            print(f"[producer {producer}] produced item {item} buffer size: {Mcurrent_size}")
+            print(f"[producer {producer}] produced {item} buffer size: {Mcurrent_size}")
 
     def Mget_item(self, consumer):
 
@@ -192,7 +192,7 @@ class MProcessBuffer:
 
                 Mcurrent_size = self.queue.qsize()
 
-                print(f"[consumer {consumer}] consumed item {item} buffer size: {Mcurrent_size}")
+                print(f"[consumer {consumer}] consumed {item} buffer size: {Mcurrent_size}")
 
             else:
                 print(f"[consumer {consumer}] received stop signal - exiting")
@@ -311,7 +311,7 @@ def start_multiprocess():
 
     # Send stop signals
     for i in range(number_consumer):
-        shared_Pbuffer.Mput_item(None, "MProcess")
+        shared_Pbuffer.Mput_item(None, "poisonpill")
 
     for c in c_consumers:
         c.join()
@@ -347,7 +347,7 @@ def start_thread():
         p.join()
 
     for i in range(num_consumer):
-        shared_buffer.put_item(None, "MainThread")
+        shared_buffer.put_item(None, poisonpill")
 
     for c in consumers:
         c.join()
