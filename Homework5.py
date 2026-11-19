@@ -60,7 +60,7 @@ class MemoryAllocation:
         
         is_found = False
         
-        # Search for free block and merge adjacent memory size
+        # Search for free block and merge adjacent memory block size
         for block in self.blocks:
             
             if block.block_name == block_name:
