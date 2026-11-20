@@ -150,7 +150,7 @@ class MemoryAllocation:
         frag = self.calculate_fragmentation()
         convert_frag = frag * 100
 
-        print(f"pool: {self.pool_size}, used: {used}, free: {free}, holes: {holes}, largest hole: {largest}, fragmentation: {round(convert_frag, 1):.2f}%")
+        print(f"pool: {self.pool_size}, used: {used}, free: {free}, holes: {holes}, largest hole: {largest}, fragmentation: {convert_frag:.2f}%")
 
         free_blocks = []
         
