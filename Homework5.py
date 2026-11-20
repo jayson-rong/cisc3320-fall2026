@@ -201,7 +201,8 @@ class MemoryAllocation:
             free_block = MemoryBlock(start_at + memory_size, remaining_block_size, "Free")
 
             index = self.blocks.index(block)
-            self.blocks[index: index + 1] = [allocated_block, free_block]
+            self.blocks[index] = allocated_block
+            self.blocks.insert(index + 1, free_block)
 
         print(f"{block_name}: {memory_size} bytes at [{start_at}-{start_at + memory_size})")
 
